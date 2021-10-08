@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <title>Document</title>
+  <script src="modal.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      margin: 2rem;
+    }
+  </style>
+</head>
+<body>
+<uc-modal>
+  <h1 slot="title">Please Confirm</h1>
+  <p>With your confirmation you agree to pay the full amount.</p>
+</uc-modal>
+<p>Please Confirm your choice...</p>
+<button>Show Details & Confirm</button>
+<script>
+  const confirmButton = document.querySelector('button');
+  const modal = document.querySelector('uc-modal');
+  confirmButton.addEventListener('click', toggleModal.bind(this))
+
+  modal.addEventListener('confirm', () => {
+    console.log("Confirmed...")
+  })
+
+  modal.addEventListener('cancel', () => {
+    console.log("Cancelled...")
+  })
+
+  function toggleModal() {
+    modal.open()
+  }
+</script>
+</body>
+</html>
